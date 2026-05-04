@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+html {
+  scroll-behavior: smooth;
+  /*Adds smooth scrolling instead of snapping to element*/
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    background-image: url("header_photo_tree.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: down;
+    background-color: white;
+    background-position: center bottom;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.authors {
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+
+.cta-button {
+    background-color: #f47c3c;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d96526;
+}
+
+/* NAVIGATION */
+
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.main-nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: #f0f0f0;
+}
+
+
+.main-nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #F57C40;
+    color: #F57C40;
+}
+
+
+.tab-content {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+
+/* MAIN CONTENT */
+.content {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.wide-tab {
+    max-width: 2000px;
+    padding: 0 40px;
+}
+
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centre les tables */
+    gap: 30px;
+}
+
+/* 3 tables max par ligne avec taille fixe */
+.table-wrapper {
+    flex: 0 0 calc(33.333% - 20px); /* 3 par ligne, avec espace entre */
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+/* S'assurer que les tables s'affichent proprement */
+table.dataTable {
+    width: 100% !important;
+    font-size: 90%;
+    border-collapse: collapse;
+}
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+iframe {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+
+
+

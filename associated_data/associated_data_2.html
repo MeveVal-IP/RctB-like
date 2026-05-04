@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ee1107318f15de08de3e8d0dee632d35 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+     <div style="
+     position: fixed; 
+     bottom: 50px; left: 50px; width: 180px; height: auto; 
+     background-color: white; 
+     border:2px solid grey; 
+     z-index:9999; 
+     font-size:14px;
+     padding: 10px;
+     box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+     ">
+     <b>Source</b><br>
+
+        <i style="background:grey;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Unknown<br>
+    
+        <i style="background:darkred;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Homo sapiens<br>
+    
+        <i style="background:darkblue;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Environmental<br>
+    
+        <i style="background:darkgreen;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Seafood<br>
+    
+        <i style="background:darkorange;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Bird<br>
+    
+        <i style="background:darkmagenta;width:15px;height:15px;float:left;margin-right:8px;opacity:0.8;"></i>Food<br>
+    </div>
+    
+            <div class="folium-map" id="map_ee1107318f15de08de3e8d0dee632d35" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ee1107318f15de08de3e8d0dee632d35 = L.map(
+                "map_ee1107318f15de08de3e8d0dee632d35",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "maxBounds": [
+[
+-90,
+-180,
+],
+[
+90,
+180,
+],
+],
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cc00e374fc22a3f65dcb00a2897cb36f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 2,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_cc00e374fc22a3f65dcb00a2897cb36f.addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+            var circle_marker_0d4b42dd0f2fc48d5c331027f6ebc628 = L.circleMarker(
+                [33.43291866884401, 116.86721784697309],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_fc1989be21c6268b5a34ea270a5d6060 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f24b5d3960577dcb4b3c20ad7813bbd2 = $(`<div id="html_f24b5d3960577dcb4b3c20ad7813bbd2" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. V17_P4S1T151 </b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCF_963875495.1<br><u>BioSample ID</u>: SAMEA115017464<br><u>BioProject ID</u>: PRJEB71012<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_fc1989be21c6268b5a34ea270a5d6060.setContent(html_f24b5d3960577dcb4b3c20ad7813bbd2);
+            
+        
+
+        circle_marker_0d4b42dd0f2fc48d5c331027f6ebc628.bindPopup(popup_fc1989be21c6268b5a34ea270a5d6060)
+        ;
+
+        
+    
+    
+            var circle_marker_fad992183a9eff6d325f92b5aabfccbd = L.circleMarker(
+                [30.362041363281858, 117.91624106360503],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_0d1252eb53f2799455e3d60d2710883f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0dedbd1b0ec9c48029814f00cf576c58 = $(`<div id="html_0dedbd1b0ec9c48029814f00cf576c58" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. V15_P4S5T153 </b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCF_963874485.1<br><u>BioSample ID</u>: SAMEA115017465<br><u>BioProject ID</u>: PRJEB71012<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_0d1252eb53f2799455e3d60d2710883f.setContent(html_0dedbd1b0ec9c48029814f00cf576c58);
+            
+        
+
+        circle_marker_fad992183a9eff6d325f92b5aabfccbd.bindPopup(popup_0d1252eb53f2799455e3d60d2710883f)
+        ;
+
+        
+    
+    
+            var circle_marker_d3231d45bbb24e1e702edcfbeef41810 = L.circleMarker(
+                [36.635042069642694, 104.03426750282632],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_25c66da04fb275bcf941e3e5ee2555f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b67459ceae0094a3e9e9964b80a36919 = $(`<div id="html_b67459ceae0094a3e9e9964b80a36919" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 10290 </b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCF_905331675.1<br><u>BioSample ID</u>: SAMEA8103034<br><u>BioProject ID</u>: PRJEB39490<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_25c66da04fb275bcf941e3e5ee2555f1.setContent(html_b67459ceae0094a3e9e9964b80a36919);
+            
+        
+
+        circle_marker_d3231d45bbb24e1e702edcfbeef41810.bindPopup(popup_25c66da04fb275bcf941e3e5ee2555f1)
+        ;
+
+        
+    
+    
+            var circle_marker_6540cff2c90af9aece31e146576afb7a = L.circleMarker(
+                [13.309344148638472, 102.05789554478089],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_92aeaeb663abe7f4b88651015112d27c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b00d827eb1b35036082897e837813e9b = $(`<div id="html_b00d827eb1b35036082897e837813e9b" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio cholerae TSY216</b></i><br><u>Date</u>: 2010-06<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCA_001045415.1<br><u>BioSample ID</u>: SAMN02741812<br><u>BioProject ID</u>: PRJNA245932<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_92aeaeb663abe7f4b88651015112d27c.setContent(html_b00d827eb1b35036082897e837813e9b);
+            
+        
+
+        circle_marker_6540cff2c90af9aece31e146576afb7a.bindPopup(popup_92aeaeb663abe7f4b88651015112d27c)
+        ;
+
+        
+    
+    
+            var circle_marker_f9fe9d435df3ae9d2b0a697289cec40c = L.circleMarker(
+                [36.25663622962267, 126.06214965985562],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_0e56714118e71aabd993fe2c1013afc6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f9987e911606a9728bbb980398e1d05 = $(`<div id="html_3f9987e911606a9728bbb980398e1d05" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus SC9729</b></i><br><u>Date</u>: 2011-03-27<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_000959825.1<br><u>BioSample ID</u>: SAMN03371456<br><u>BioProject ID</u>: PRJNA276162<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_0e56714118e71aabd993fe2c1013afc6.setContent(html_3f9987e911606a9728bbb980398e1d05);
+            
+        
+
+        circle_marker_f9fe9d435df3ae9d2b0a697289cec40c.bindPopup(popup_0e56714118e71aabd993fe2c1013afc6)
+        ;
+
+        
+    
+    
+            var circle_marker_8385f946434c0325661bfdb6b32d247d = L.circleMarker(
+                [59.20213206868845, -109.96332069237837],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_659b080c102253a6dd6349d4f431b268 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a76537ca7e27f9157631f0b8c607cbb = $(`<div id="html_6a76537ca7e27f9157631f0b8c607cbb" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus S456-5</b></i><br><u>Date</u>: 2012<br><u>Source</u>: <i>Seafood</i><br><u>Assembly ID</u>: GCF_001268045.1<br><u>BioSample ID</u>: SAMN03795188<br><u>BioProject ID</u>: PRJNA288141<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_659b080c102253a6dd6349d4f431b268.setContent(html_6a76537ca7e27f9157631f0b8c607cbb);
+            
+        
+
+        circle_marker_8385f946434c0325661bfdb6b32d247d.bindPopup(popup_659b080c102253a6dd6349d4f431b268)
+        ;
+
+        
+    
+    
+            var circle_marker_8262a21902a61572ba3d562a12f2512d = L.circleMarker(
+                [61.29635217373677, -108.20145860115481],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_d5036bcfef4630ad510772b4515caa20 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3690395498afb550367c2a6644ba06b = $(`<div id="html_c3690395498afb550367c2a6644ba06b" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus S176-10</b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Seafood</i><br><u>Assembly ID</u>: GCF_001280725.1<br><u>BioSample ID</u>: SAMN03799838<br><u>BioProject ID</u>: PRJNA288141<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_d5036bcfef4630ad510772b4515caa20.setContent(html_c3690395498afb550367c2a6644ba06b);
+            
+        
+
+        circle_marker_8262a21902a61572ba3d562a12f2512d.bindPopup(popup_d5036bcfef4630ad510772b4515caa20)
+        ;
+
+        
+    
+    
+            var circle_marker_58ee922eecd957f7e589a3b207ccde41 = L.circleMarker(
+                [60.984825839934814, -107.37421077478471],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_994457b84e432ea4e11c9b5481ed2e42 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f4bd68e064a67052a57d6710ce9d8d2 = $(`<div id="html_5f4bd68e064a67052a57d6710ce9d8d2" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus S439-9</b></i><br><u>Date</u>: 2012-07<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCF_001270155.1<br><u>BioSample ID</u>: SAMN03799841<br><u>BioProject ID</u>: PRJNA288141<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_994457b84e432ea4e11c9b5481ed2e42.setContent(html_5f4bd68e064a67052a57d6710ce9d8d2);
+            
+        
+
+        circle_marker_58ee922eecd957f7e589a3b207ccde41.bindPopup(popup_994457b84e432ea4e11c9b5481ed2e42)
+        ;
+
+        
+    
+    
+            var circle_marker_8d36a2ebf944a77b6c21e002fbbb0969 = L.circleMarker(
+                [39.49755050287978, -99.4741151783565],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_3e919b40715cc1a61b424a9ad4fc6f80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53d26eb258cdfd18b9af2ae18aa18a4c = $(`<div id="html_53d26eb258cdfd18b9af2ae18aa18a4c" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus CFSAN001621</b></i><br><u>Date</u>: 1992<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCF_002072915.1<br><u>BioSample ID</u>: SAMN03945127<br><u>BioProject ID</u>: PRJNA245882<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_3e919b40715cc1a61b424a9ad4fc6f80.setContent(html_53d26eb258cdfd18b9af2ae18aa18a4c);
+            
+        
+
+        circle_marker_8d36a2ebf944a77b6c21e002fbbb0969.bindPopup(popup_3e919b40715cc1a61b424a9ad4fc6f80)
+        ;
+
+        
+    
+    
+            var circle_marker_593a06b8ebc7417cd293e83f6893a862 = L.circleMarker(
+                [37.31878438115377, 125.5636477390953],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_985fd6dd8e52d7e521162347d6adc748 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87ff498658a8af90dde146df6a8000d2 = $(`<div id="html_87ff498658a8af90dde146df6a8000d2" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus FORC_036</b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Mactra veneriformis</i><br><u>Assembly ID</u>: GCF_002117205.1<br><u>BioSample ID</u>: SAMN04914658<br><u>BioProject ID</u>: PRJNA320042<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_985fd6dd8e52d7e521162347d6adc748.setContent(html_87ff498658a8af90dde146df6a8000d2);
+            
+        
+
+        circle_marker_593a06b8ebc7417cd293e83f6893a862.bindPopup(popup_985fd6dd8e52d7e521162347d6adc748)
+        ;
+
+        
+    
+    
+            var circle_marker_159729062a798a92643945e038d6ca98 = L.circleMarker(
+                [40.57742397358915, -98.82471305159665],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_c362a8bf5b3373d572df2be85355f70d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6dbfdafd7b5799bcb778d2713dc7b00a = $(`<div id="html_6dbfdafd7b5799bcb778d2713dc7b00a" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus CFSAN023530</b></i><br><u>Date</u>: 1999<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCA_015819305.1<br><u>BioSample ID</u>: SAMN06076983<br><u>BioProject ID</u>: PRJNA245882<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_c362a8bf5b3373d572df2be85355f70d.setContent(html_6dbfdafd7b5799bcb778d2713dc7b00a);
+            
+        
+
+        circle_marker_159729062a798a92643945e038d6ca98.bindPopup(popup_c362a8bf5b3373d572df2be85355f70d)
+        ;
+
+        
+    
+    
+            var circle_marker_877e45f2566abe2d028e0f532f4b2cbc = L.circleMarker(
+                [-31.636734646402886, -72.95557844933334],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_195a742a171212ed595445156031c0f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc0f63603b6932c51ff1aacf16abf266 = $(`<div id="html_fc0f63603b6932c51ff1aacf16abf266" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus CFSAN023558</b></i><br><u>Date</u>: 2004<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCA_015817875.1<br><u>BioSample ID</u>: SAMN06077009<br><u>BioProject ID</u>: PRJNA245882<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_195a742a171212ed595445156031c0f6.setContent(html_fc0f63603b6932c51ff1aacf16abf266);
+            
+        
+
+        circle_marker_877e45f2566abe2d028e0f532f4b2cbc.bindPopup(popup_195a742a171212ed595445156031c0f6)
+        ;
+
+        
+    
+    
+            var circle_marker_c41f5153183c8064a74298bb9282d6c4 = L.circleMarker(
+                [37.62216564925325, 126.77746612425479],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_c41bb796526738e16700dba2c134948e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15f1fd692cfe17bacf9965defdb6adb5 = $(`<div id="html_15f1fd692cfe17bacf9965defdb6adb5" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus FORC_053</b></i><br><u>Date</u>: 2013-11-13<br><u>Source</u>: <i>Mactra veneriformis</i><br><u>Assembly ID</u>: GCF_003522555.1<br><u>BioSample ID</u>: SAMN06184516<br><u>BioProject ID</u>: PRJNA358753<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_c41bb796526738e16700dba2c134948e.setContent(html_15f1fd692cfe17bacf9965defdb6adb5);
+            
+        
+
+        circle_marker_c41f5153183c8064a74298bb9282d6c4.bindPopup(popup_c41bb796526738e16700dba2c134948e)
+        ;
+
+        
+    
+    
+            var circle_marker_068c0d8a91eceb0dd3c0fcfa1998a120 = L.circleMarker(
+                [28.193524887409865, -100.94358253091478],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_4d5843849a0ab02d066a28530a904cfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8487c9a003e35ab56c752460953ab9df = $(`<div id="html_8487c9a003e35ab56c752460953ab9df" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. V15_P4S5T153 V15_P4S5T153</b></i><br><u>Date</u>: 2013-03<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCF_002241355.1<br><u>BioSample ID</u>: SAMN06251410<br><u>BioProject ID</u>: PRJNA361511<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_4d5843849a0ab02d066a28530a904cfb.setContent(html_8487c9a003e35ab56c752460953ab9df);
+            
+        
+
+        circle_marker_068c0d8a91eceb0dd3c0fcfa1998a120.bindPopup(popup_4d5843849a0ab02d066a28530a904cfb)
+        ;
+
+        
+    
+    
+            var circle_marker_33ad15d66a5ef328e60004d5acde669b = L.circleMarker(
+                [26.098226454169815, -100.85535224359374],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_a725f6d2ea57338ff7499e69fe0f4fe0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6919e690170c0e2a4a9c21947f7f4f3a = $(`<div id="html_6919e690170c0e2a4a9c21947f7f4f3a" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. V17_P4S1T151 V17_P4S1T151</b></i><br><u>Date</u>: 2013-03<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCF_002241335.1<br><u>BioSample ID</u>: SAMN06251411<br><u>BioProject ID</u>: PRJNA361511<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_a725f6d2ea57338ff7499e69fe0f4fe0.setContent(html_6919e690170c0e2a4a9c21947f7f4f3a);
+            
+        
+
+        circle_marker_33ad15d66a5ef328e60004d5acde669b.bindPopup(popup_a725f6d2ea57338ff7499e69fe0f4fe0)
+        ;
+
+        
+    
+    
+            var circle_marker_8e7ca880c46a1ce59e8f3ffb27c8cfec = L.circleMarker(
+                [48.87976413991611, -118.60584029641484],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_d1a7ebe2f65e76d6668a988f289ca8b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d179f9c083f476417acb79e244921b07 = $(`<div id="html_d179f9c083f476417acb79e244921b07" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus WAPHLVBRA00197</b></i><br><u>Date</u>: 2013-08<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015805295.1<br><u>BioSample ID</u>: SAMN08965116<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_d1a7ebe2f65e76d6668a988f289ca8b6.setContent(html_d179f9c083f476417acb79e244921b07);
+            
+        
+
+        circle_marker_8e7ca880c46a1ce59e8f3ffb27c8cfec.bindPopup(popup_d1a7ebe2f65e76d6668a988f289ca8b6)
+        ;
+
+        
+    
+    
+            var circle_marker_bc55e8597f930cdd76734ae435f714b1 = L.circleMarker(
+                [47.812903353050466, -121.98373678099955],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_e6bc709ce1f407182eb85367b84f3b1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cf3efbca153130ae584fa1f82366fb4 = $(`<div id="html_0cf3efbca153130ae584fa1f82366fb4" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus WAPHLVBRA00184</b></i><br><u>Date</u>: 2013-07<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015805405.1<br><u>BioSample ID</u>: SAMN08965145<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_e6bc709ce1f407182eb85367b84f3b1e.setContent(html_0cf3efbca153130ae584fa1f82366fb4);
+            
+        
+
+        circle_marker_bc55e8597f930cdd76734ae435f714b1.bindPopup(popup_e6bc709ce1f407182eb85367b84f3b1e)
+        ;
+
+        
+    
+    
+            var circle_marker_f3efd04e8cd9ea53379a352c83249ee4 = L.circleMarker(
+                [45.50664277173889, -121.72735164645876],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_b365ef694d233e3b84dab2c7fafac953 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc164562bdacbbe447f4f568dde148e5 = $(`<div id="html_bc164562bdacbbe447f4f568dde148e5" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus WAPHLVBRA00142</b></i><br><u>Date</u>: 2013-07<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015807575.2<br><u>BioSample ID</u>: SAMN08965148<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_b365ef694d233e3b84dab2c7fafac953.setContent(html_bc164562bdacbbe447f4f568dde148e5);
+            
+        
+
+        circle_marker_f3efd04e8cd9ea53379a352c83249ee4.bindPopup(popup_b365ef694d233e3b84dab2c7fafac953)
+        ;
+
+        
+    
+    
+            var circle_marker_bd79c0f2f60cb457e950a8ea842f45f3 = L.circleMarker(
+                [46.067420591105524, -118.2440955966493],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_1c402c04116c3d874290d1dfc806208c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21f544fa613e15dc1358e4518e2f1a46 = $(`<div id="html_21f544fa613e15dc1358e4518e2f1a46" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus WAPHLVBRA00128</b></i><br><u>Date</u>: 2013-06<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015807715.2<br><u>BioSample ID</u>: SAMN08965174<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_1c402c04116c3d874290d1dfc806208c.setContent(html_21f544fa613e15dc1358e4518e2f1a46);
+            
+        
+
+        circle_marker_bd79c0f2f60cb457e950a8ea842f45f3.bindPopup(popup_1c402c04116c3d874290d1dfc806208c)
+        ;
+
+        
+    
+    
+            var circle_marker_5e36532d3eed8f5dfcc5908a4b802929 = L.circleMarker(
+                [48.49080021473494, -118.21885625227146],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_f3e45027e2b09d3071544a03aa983b0c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84bf74ab2fb0bd2b27ddf96d1bfaa55b = $(`<div id="html_84bf74ab2fb0bd2b27ddf96d1bfaa55b" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PHLUSAVBR00063</b></i><br><u>Date</u>: 2014-08<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015807215.1<br><u>BioSample ID</u>: SAMN09295489<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_f3e45027e2b09d3071544a03aa983b0c.setContent(html_84bf74ab2fb0bd2b27ddf96d1bfaa55b);
+            
+        
+
+        circle_marker_5e36532d3eed8f5dfcc5908a4b802929.bindPopup(popup_f3e45027e2b09d3071544a03aa983b0c)
+        ;
+
+        
+    
+    
+            var circle_marker_d738964fd4b0ddcb9563cde9b8c4a45f = L.circleMarker(
+                [48.58525316580379, -118.82739973840685],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_a0bea514e02d8ae058f7440beda393c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_920d0e4041e73964ba5b5f3d564e5452 = $(`<div id="html_920d0e4041e73964ba5b5f3d564e5452" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PHLUSAVBR00062</b></i><br><u>Date</u>: 2014-08<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015804375.1<br><u>BioSample ID</u>: SAMN09295491<br><u>BioProject ID</u>: PRJNA355116<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_a0bea514e02d8ae058f7440beda393c9.setContent(html_920d0e4041e73964ba5b5f3d564e5452);
+            
+        
+
+        circle_marker_d738964fd4b0ddcb9563cde9b8c4a45f.bindPopup(popup_a0bea514e02d8ae058f7440beda393c9)
+        ;
+
+        
+    
+    
+            var circle_marker_5b9d2831a529363c0701561dafb9adc6 = L.circleMarker(
+                [44.18672858565771, -77.55702728353229],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "grey", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_5f185fd624e856f0343f2b5443764b5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4af1a34b77da73f47c436edf1ac08c4f = $(`<div id="html_4af1a34b77da73f47c436edf1ac08c4f" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PNUSAV000307</b></i><br><u>Date</u>: 2018-07<br><u>Source</u>: <i>Unknown</i><br><u>Assembly ID</u>: GCA_015803055.1<br><u>BioSample ID</u>: SAMN09813417<br><u>BioProject ID</u>: PRJNA266293<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_5f185fd624e856f0343f2b5443764b5b.setContent(html_4af1a34b77da73f47c436edf1ac08c4f);
+            
+        
+
+        circle_marker_5b9d2831a529363c0701561dafb9adc6.bindPopup(popup_5f185fd624e856f0343f2b5443764b5b)
+        ;
+
+        
+    
+    
+            var circle_marker_15995a784bff5823ea621626ae355f89 = L.circleMarker(
+                [45.58557504844414, 44.33529142653724],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_9b069c7f97d30cb31d2c9cca1b87328e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0a984963b8012ff21c2a77576529a677 = $(`<div id="html_0a984963b8012ff21c2a77576529a677" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio cholerae M1526</b></i><br><u>Date</u>: 2012<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_008370875.1<br><u>BioSample ID</u>: SAMN12671270<br><u>BioProject ID</u>: PRJNA563275<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_9b069c7f97d30cb31d2c9cca1b87328e.setContent(html_0a984963b8012ff21c2a77576529a677);
+            
+        
+
+        circle_marker_15995a784bff5823ea621626ae355f89.bindPopup(popup_9b069c7f97d30cb31d2c9cca1b87328e)
+        ;
+
+        
+    
+    
+            var circle_marker_8f977b043f70954f34e15763aadab7af = L.circleMarker(
+                [29.927147707322703, 122.16395072236502],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_37429b022e39492ac4b827c446d9b416 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_56f36ac046520643a4c41e5e9f791d3e = $(`<div id="html_56f36ac046520643a4c41e5e9f791d3e" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus </b></i><br><u>Date</u>: 2015<br><u>Source</u>: <i>Shellfish</i><br><u>Assembly ID</u>: GCA_015968555.1<br><u>BioSample ID</u>: SAMN13241751<br><u>BioProject ID</u>: PRJNA514245<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_37429b022e39492ac4b827c446d9b416.setContent(html_56f36ac046520643a4c41e5e9f791d3e);
+            
+        
+
+        circle_marker_8f977b043f70954f34e15763aadab7af.bindPopup(popup_37429b022e39492ac4b827c446d9b416)
+        ;
+
+        
+    
+    
+            var circle_marker_0418ddddd15998bf239a00c6dab7c5da = L.circleMarker(
+                [46.62154767655707, -121.36791759362193],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_5c7723751734ade7e9b62ad046c353f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb9c549ba3dbdaf84a5b6b3538a6d978 = $(`<div id="html_fb9c549ba3dbdaf84a5b6b3538a6d978" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PHLUSAVBR00202</b></i><br><u>Date</u>: 2013-07<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015781795.1<br><u>BioSample ID</u>: SAMN13283487<br><u>BioProject ID</u>: PRJNA245882<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_5c7723751734ade7e9b62ad046c353f5.setContent(html_fb9c549ba3dbdaf84a5b6b3538a6d978);
+            
+        
+
+        circle_marker_0418ddddd15998bf239a00c6dab7c5da.bindPopup(popup_5c7723751734ade7e9b62ad046c353f5)
+        ;
+
+        
+    
+    
+            var circle_marker_ae2db868232fe0856db518ed3cc625b1 = L.circleMarker(
+                [47.652394629298456, -122.17171333700043],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_265706f30bc5433e9a840fb1c788cc74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43600dd7e7473162fe80665f340b5db1 = $(`<div id="html_43600dd7e7473162fe80665f340b5db1" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PHLUSAVBR00229</b></i><br><u>Date</u>: 2013-07<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_015775435.1<br><u>BioSample ID</u>: SAMN13808694<br><u>BioProject ID</u>: PRJNA245882<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_265706f30bc5433e9a840fb1c788cc74.setContent(html_43600dd7e7473162fe80665f340b5db1);
+            
+        
+
+        circle_marker_ae2db868232fe0856db518ed3cc625b1.bindPopup(popup_265706f30bc5433e9a840fb1c788cc74)
+        ;
+
+        
+    
+    
+            var circle_marker_0d0b7662da1e5658851c8ab933ec000f = L.circleMarker(
+                [42.2472918638236, 107.13999627169996],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkorange", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_ee3ef3cfcb4957c131aadf25e96648a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5828a8c710739b1d224131de17964585 = $(`<div id="html_5828a8c710739b1d224131de17964585" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio metschnikovii M13F</b></i><br><u>Date</u>: 2018<br><u>Source</u>: <i>Migratory birds</i><br><u>Assembly ID</u>: GCF_014305065.1<br><u>BioSample ID</u>: SAMN15854568<br><u>BioProject ID</u>: PRJNA657984<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_ee3ef3cfcb4957c131aadf25e96648a0.setContent(html_5828a8c710739b1d224131de17964585);
+            
+        
+
+        circle_marker_0d0b7662da1e5658851c8ab933ec000f.bindPopup(popup_ee3ef3cfcb4957c131aadf25e96648a0)
+        ;
+
+        
+    
+    
+            var circle_marker_a0ae7e9eecce31298837fcd9b13e9698 = L.circleMarker(
+                [49.20800356744101, 9.017013655507142],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_7106dec8df7b4db7526089f8d328cd01 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e58619c6905727bb7aa2c7b76329c291 = $(`<div id="html_e58619c6905727bb7aa2c7b76329c291" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 19-VB00998</b></i><br><u>Date</u>: 2019<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCF_025920025.1<br><u>BioSample ID</u>: SAMN16252928<br><u>BioProject ID</u>: PRJNA665365<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_7106dec8df7b4db7526089f8d328cd01.setContent(html_e58619c6905727bb7aa2c7b76329c291);
+            
+        
+
+        circle_marker_a0ae7e9eecce31298837fcd9b13e9698.bindPopup(popup_7106dec8df7b4db7526089f8d328cd01)
+        ;
+
+        
+    
+    
+            var circle_marker_d4181fe8a3ad185ec33af9acf50d9722 = L.circleMarker(
+                [15.416036059041279, 100.00623968488432],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_1b09dd979c92c77870e6dd94874b2a87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6a981b57a590fff55a9d3f0c5b95bab = $(`<div id="html_d6a981b57a590fff55a9d3f0c5b95bab" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 16-VB00221</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Shrimp</i><br><u>Assembly ID</u>: GCA_022762985.1<br><u>BioSample ID</u>: SAMN17385023<br><u>BioProject ID</u>: PRJNA693313<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_1b09dd979c92c77870e6dd94874b2a87.setContent(html_d6a981b57a590fff55a9d3f0c5b95bab);
+            
+        
+
+        circle_marker_d4181fe8a3ad185ec33af9acf50d9722.bindPopup(popup_1b09dd979c92c77870e6dd94874b2a87)
+        ;
+
+        
+    
+    
+            var circle_marker_5729fbf3f53aba352e9b45b47ad50b7f = L.circleMarker(
+                [45.209300764686276, 117.03123517217612],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkorange", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_d78c8eebe263e32dd0dfd8756ec0d01b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_353465a9b1b37634f4642e70b44a16ec = $(`<div id="html_353465a9b1b37634f4642e70b44a16ec" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio metschnikovii M13F</b></i><br><u>Date</u>: 2018<br><u>Source</u>: <i>Migratory birds</i><br><u>Assembly ID</u>: GCF_019092245.1<br><u>BioSample ID</u>: SAMN18673110<br><u>BioProject ID</u>: PRJNA720630<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_d78c8eebe263e32dd0dfd8756ec0d01b.setContent(html_353465a9b1b37634f4642e70b44a16ec);
+            
+        
+
+        circle_marker_5729fbf3f53aba352e9b45b47ad50b7f.bindPopup(popup_d78c8eebe263e32dd0dfd8756ec0d01b)
+        ;
+
+        
+    
+    
+            var circle_marker_48b8e18167f943ff28389035cc8e22bd = L.circleMarker(
+                [22.858287242764945, 115.05127276021842],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_be0e4e3d11944aadbbf1e8b44536cb49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f3ed05c7ce06a22a7b1e08a212de302 = $(`<div id="html_3f3ed05c7ce06a22a7b1e08a212de302" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio alginolyticus vb2092</b></i><br><u>Date</u>: 2016-12<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCA_020223675.1<br><u>BioSample ID</u>: SAMN21235815<br><u>BioProject ID</u>: PRJNA760814<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_be0e4e3d11944aadbbf1e8b44536cb49.setContent(html_3f3ed05c7ce06a22a7b1e08a212de302);
+            
+        
+
+        circle_marker_48b8e18167f943ff28389035cc8e22bd.bindPopup(popup_be0e4e3d11944aadbbf1e8b44536cb49)
+        ;
+
+        
+    
+    
+            var circle_marker_de8c71bc586e784b1b32c7f4dacb4d04 = L.circleMarker(
+                [15.12668259069848, 100.44636884162989],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkorange", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_83c9a37eef5f76226e7e4ce45f138371 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be3df60249e4c3ec0ab7aa74081eb4c1 = $(`<div id="html_be3df60249e4c3ec0ab7aa74081eb4c1" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus MUVP8</b></i><br><u>Date</u>: 2016-09-05<br><u>Source</u>: <i>Aquatic bird</i><br><u>Assembly ID</u>: GCF_022603375.1<br><u>BioSample ID</u>: SAMN26550101<br><u>BioProject ID</u>: PRJNA814408<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_83c9a37eef5f76226e7e4ce45f138371.setContent(html_be3df60249e4c3ec0ab7aa74081eb4c1);
+            
+        
+
+        circle_marker_de8c71bc586e784b1b32c7f4dacb4d04.bindPopup(popup_83c9a37eef5f76226e7e4ce45f138371)
+        ;
+
+        
+    
+    
+            var circle_marker_a8a56128b0f9760c54244514ed032838 = L.circleMarker(
+                [49.49988586668193, 10.083282830802299],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_41302c0e3f057a83f1ad16a9186e5767 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49aa99d4caa07930da3552fa861f4311 = $(`<div id="html_49aa99d4caa07930da3552fa861f4311" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 16-VB00198</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCF_025917705.1<br><u>BioSample ID</u>: SAMN28232995<br><u>BioProject ID</u>: PRJNA837871<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_41302c0e3f057a83f1ad16a9186e5767.setContent(html_49aa99d4caa07930da3552fa861f4311);
+            
+        
+
+        circle_marker_a8a56128b0f9760c54244514ed032838.bindPopup(popup_41302c0e3f057a83f1ad16a9186e5767)
+        ;
+
+        
+    
+    
+            var circle_marker_732600a12d463ea82f4cf1a7086dfe93 = L.circleMarker(
+                [48.95137218005256, -122.92771261907176],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_2d4da39f41b77a48a775007c93582f9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_32af2458a0ca26ae55468ad01374910c = $(`<div id="html_32af2458a0ca26ae55468ad01374910c" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio diabolicus HS-43-5</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_024748215.1<br><u>BioSample ID</u>: SAMN28495018<br><u>BioProject ID</u>: PRJNA772001<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_2d4da39f41b77a48a775007c93582f9d.setContent(html_32af2458a0ca26ae55468ad01374910c);
+            
+        
+
+        circle_marker_732600a12d463ea82f4cf1a7086dfe93.bindPopup(popup_2d4da39f41b77a48a775007c93582f9d)
+        ;
+
+        
+    
+    
+            var circle_marker_545400d18989bf8616543f28cef5fe52 = L.circleMarker(
+                [47.63928056554186, -126.48245975711991],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_b3f1c49f50bf6e307d7e969128572fb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b52e914e70cd7c01a9fae29204cabb69 = $(`<div id="html_b52e914e70cd7c01a9fae29204cabb69" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio diabolicus HS-43-6</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_024748175.1<br><u>BioSample ID</u>: SAMN28495019<br><u>BioProject ID</u>: PRJNA772001<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_b3f1c49f50bf6e307d7e969128572fb4.setContent(html_b52e914e70cd7c01a9fae29204cabb69);
+            
+        
+
+        circle_marker_545400d18989bf8616543f28cef5fe52.bindPopup(popup_b3f1c49f50bf6e307d7e969128572fb4)
+        ;
+
+        
+    
+    
+            var circle_marker_3bdd3d3272b77d5dca2aa29ba6c8caf2 = L.circleMarker(
+                [47.90009286854576, -124.86591351467276],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_55bbba6846ba9ce3bacce69ad93245e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd12391597652a601cb5a708363db5ee = $(`<div id="html_fd12391597652a601cb5a708363db5ee" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio diabolicus HS-43-7A</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCF_024748135.1<br><u>BioSample ID</u>: SAMN28495020<br><u>BioProject ID</u>: PRJNA772001<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_55bbba6846ba9ce3bacce69ad93245e6.setContent(html_fd12391597652a601cb5a708363db5ee);
+            
+        
+
+        circle_marker_3bdd3d3272b77d5dca2aa29ba6c8caf2.bindPopup(popup_55bbba6846ba9ce3bacce69ad93245e6)
+        ;
+
+        
+    
+    
+            var circle_marker_cc4d71d32fb1f353f473d9b8d4358d48 = L.circleMarker(
+                [44.98764426589133, -66.34197745423312],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_081afa445372afd05255e4fb017ce212 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5793a4ba02e4a499efad0ade28d3378 = $(`<div id="html_b5793a4ba02e4a499efad0ade28d3378" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus HS-92-7</b></i><br><u>Date</u>: 2017<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCF_024746885.1<br><u>BioSample ID</u>: SAMN28495060<br><u>BioProject ID</u>: PRJNA772001<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_081afa445372afd05255e4fb017ce212.setContent(html_b5793a4ba02e4a499efad0ade28d3378);
+            
+        
+
+        circle_marker_cc4d71d32fb1f353f473d9b8d4358d48.bindPopup(popup_081afa445372afd05255e4fb017ce212)
+        ;
+
+        
+    
+    
+            var circle_marker_d9c79ba13b2bc1121e42d15aa718f9fd = L.circleMarker(
+                [4.496846442838823, -75.83275162187954],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_779cb7290f89006e265048696e1b12b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13d934430baf383b29e078aafac41939 = $(`<div id="html_13d934430baf383b29e078aafac41939" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus BM8A</b></i><br><u>Date</u>: 2021-01<br><u>Source</u>: <i>Anadara tuberculosa</i><br><u>Assembly ID</u>: GCA_030994205.1<br><u>BioSample ID</u>: SAMN29333285<br><u>BioProject ID</u>: PRJNA852548<br><u>Assembly Level</u>: Complete Genome</div>`)[0];
+                popup_779cb7290f89006e265048696e1b12b2.setContent(html_13d934430baf383b29e078aafac41939);
+            
+        
+
+        circle_marker_d9c79ba13b2bc1121e42d15aa718f9fd.bindPopup(popup_779cb7290f89006e265048696e1b12b2)
+        ;
+
+        
+    
+    
+            var circle_marker_06da62e5ea7c9e878a34240b1dd13254 = L.circleMarker(
+                [38.19591649406076, 129.49543147628685],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_93d1ed25c7244703ceb526d61312102e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4dd2eca161e3873327e09f9dc0d97d6a = $(`<div id="html_4dd2eca161e3873327e09f9dc0d97d6a" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus SG_014</b></i><br><u>Date</u>: 2021-01-21<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_024495675.1<br><u>BioSample ID</u>: SAMN29637727<br><u>BioProject ID</u>: PRJNA857825<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_93d1ed25c7244703ceb526d61312102e.setContent(html_4dd2eca161e3873327e09f9dc0d97d6a);
+            
+        
+
+        circle_marker_06da62e5ea7c9e878a34240b1dd13254.bindPopup(popup_93d1ed25c7244703ceb526d61312102e)
+        ;
+
+        
+    
+    
+            var circle_marker_9ba10538fc5384216547b5ffa131d43b = L.circleMarker(
+                [16.30419690493253, 108.78761682722184],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_038f7b1b6b3e3137ddfabf7276fdbb2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ae04aa9fd63aac24c97f9395f59db1a = $(`<div id="html_4ae04aa9fd63aac24c97f9395f59db1a" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus VP2162</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Litopenaeus vannamei</i><br><u>Assembly ID</u>: GCF_026537775.1<br><u>BioSample ID</u>: SAMN29790248<br><u>BioProject ID</u>: PRJNA859558<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_038f7b1b6b3e3137ddfabf7276fdbb2b.setContent(html_4ae04aa9fd63aac24c97f9395f59db1a);
+            
+        
+
+        circle_marker_9ba10538fc5384216547b5ffa131d43b.bindPopup(popup_038f7b1b6b3e3137ddfabf7276fdbb2b)
+        ;
+
+        
+    
+    
+            var circle_marker_7696c1385f19f3b1ac93853851ebe58d = L.circleMarker(
+                [7.094471224675562, 97.85013300758672],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_b5b17589c1b5716ca10a789373e3db81 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_980396cd2938e005750c18059a063610 = $(`<div id="html_980396cd2938e005750c18059a063610" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus W4.6</b></i><br><u>Date</u>: 2012-02/2012-09<br><u>Source</u>: <i>Sea cage water</i><br><u>Assembly ID</u>: GCF_039833995.1<br><u>BioSample ID</u>: SAMN30916813<br><u>BioProject ID</u>: PRJNA881843<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_b5b17589c1b5716ca10a789373e3db81.setContent(html_980396cd2938e005750c18059a063610);
+            
+        
+
+        circle_marker_7696c1385f19f3b1ac93853851ebe58d.bindPopup(popup_b5b17589c1b5716ca10a789373e3db81)
+        ;
+
+        
+    
+    
+            var circle_marker_59f08c3fa9269e73df52f6e75f8303b1 = L.circleMarker(
+                [24.607688575924517, 113.79415240630416],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkorange", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_9d41576cd905ae4e7df38d149add96e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_18605f42e772b2b3ea38cccd6fda0c6c = $(`<div id="html_18605f42e772b2b3ea38cccd6fda0c6c" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus SH8-1</b></i><br><u>Date</u>: 2018-01<br><u>Source</u>: <i>Anas platyrhynchos</i><br><u>Assembly ID</u>: GCF_028615395.1<br><u>BioSample ID</u>: SAMN32405602<br><u>BioProject ID</u>: PRJNA915733<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_9d41576cd905ae4e7df38d149add96e0.setContent(html_18605f42e772b2b3ea38cccd6fda0c6c);
+            
+        
+
+        circle_marker_59f08c3fa9269e73df52f6e75f8303b1.bindPopup(popup_9d41576cd905ae4e7df38d149add96e0)
+        ;
+
+        
+    
+    
+            var circle_marker_a105904dcb379b0a68abc39cd64b17f3 = L.circleMarker(
+                [24.31239731584939, 113.39509815272565],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkorange", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_88a739070d2b3b10122a20078021768b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f409dfb61e2742a507cfac43773e352b = $(`<div id="html_f409dfb61e2742a507cfac43773e352b" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus SH8-2</b></i><br><u>Date</u>: 2018-01<br><u>Source</u>: <i>Anas platyrhynchos</i><br><u>Assembly ID</u>: GCF_028615385.1<br><u>BioSample ID</u>: SAMN32405605<br><u>BioProject ID</u>: PRJNA915735<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_88a739070d2b3b10122a20078021768b.setContent(html_f409dfb61e2742a507cfac43773e352b);
+            
+        
+
+        circle_marker_a105904dcb379b0a68abc39cd64b17f3.bindPopup(popup_88a739070d2b3b10122a20078021768b)
+        ;
+
+        
+    
+    
+            var circle_marker_d644acda2f7b88a5a3c91faddbaf020b = L.circleMarker(
+                [28.138922936962953, 123.94547944286658],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_e1b2daa2e83adfd3be7e2166db458cd7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54252073a087bb90d2098b52c92757ed = $(`<div id="html_54252073a087bb90d2098b52c92757ed" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus </b></i><br><u>Date</u>: 2011<br><u>Source</u>: <i>Marine shellfish</i><br><u>Assembly ID</u>: GCA_032048395.1<br><u>BioSample ID</u>: SAMN33219101<br><u>BioProject ID</u>: PRJNA514245<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_e1b2daa2e83adfd3be7e2166db458cd7.setContent(html_54252073a087bb90d2098b52c92757ed);
+            
+        
+
+        circle_marker_d644acda2f7b88a5a3c91faddbaf020b.bindPopup(popup_e1b2daa2e83adfd3be7e2166db458cd7)
+        ;
+
+        
+    
+    
+            var circle_marker_582c35f7bb3637400afaf7ee623175dc = L.circleMarker(
+                [22.72737144299381, 113.97148457256345],
+                {"bubblingMouseEvents": true, "color": "darkmagenta", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkmagenta", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_054c439d7efa8e8dc1e5ce4c4ad7c9d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1df0efbd34fd85de305cc0646a235cd7 = $(`<div id="html_1df0efbd34fd85de305cc0646a235cd7" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus Vb2335</b></i><br><u>Date</u>: 2017<br><u>Source</u>: <i>Food</i><br><u>Assembly ID</u>: GCA_029578895.1<br><u>BioSample ID</u>: SAMN33776898<br><u>BioProject ID</u>: PRJNA945258<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_054c439d7efa8e8dc1e5ce4c4ad7c9d6.setContent(html_1df0efbd34fd85de305cc0646a235cd7);
+            
+        
+
+        circle_marker_582c35f7bb3637400afaf7ee623175dc.bindPopup(popup_054c439d7efa8e8dc1e5ce4c4ad7c9d6)
+        ;
+
+        
+    
+    
+            var circle_marker_9ae31226fab37db16a1224fec0cdb781 = L.circleMarker(
+                [23.547485298386984, 114.08012401164356],
+                {"bubblingMouseEvents": true, "color": "darkmagenta", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkmagenta", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_7db7b587a94b38a2447297d369c3cebb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e8199d6a45c17368fd145cd33bacb9f4 = $(`<div id="html_e8199d6a45c17368fd145cd33bacb9f4" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus Vb2679</b></i><br><u>Date</u>: 2017<br><u>Source</u>: <i>Food</i><br><u>Assembly ID</u>: GCA_029589315.1<br><u>BioSample ID</u>: SAMN33777124<br><u>BioProject ID</u>: PRJNA945258<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_7db7b587a94b38a2447297d369c3cebb.setContent(html_e8199d6a45c17368fd145cd33bacb9f4);
+            
+        
+
+        circle_marker_9ae31226fab37db16a1224fec0cdb781.bindPopup(popup_7db7b587a94b38a2447297d369c3cebb)
+        ;
+
+        
+    
+    
+            var circle_marker_28db73581e43a758017b323ef93075c8 = L.circleMarker(
+                [-35.49241091535215, 173.29236894411352],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_5057d058529f9d56c1cd645fd8767857 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b1284191efbe1bae628500d5b184dfa = $(`<div id="html_7b1284191efbe1bae628500d5b184dfa" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus A11310-1</b></i><br><u>Date</u>: 2010<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_039560275.1<br><u>BioSample ID</u>: SAMN34072658<br><u>BioProject ID</u>: PRJNA952320<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_5057d058529f9d56c1cd645fd8767857.setContent(html_7b1284191efbe1bae628500d5b184dfa);
+            
+        
+
+        circle_marker_28db73581e43a758017b323ef93075c8.bindPopup(popup_5057d058529f9d56c1cd645fd8767857)
+        ;
+
+        
+    
+    
+            var circle_marker_4d07f1c2223392bf0eed9cde4ee10a76 = L.circleMarker(
+                [-37.99070019507139, 173.7285330347738],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_84e206eb98f7447656a9a19c9769412e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b80fa1813821c3922ff66960a5ce20f2 = $(`<div id="html_b80fa1813821c3922ff66960a5ce20f2" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus A11320-1</b></i><br><u>Date</u>: 2010<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_039559885.1<br><u>BioSample ID</u>: SAMN34072668<br><u>BioProject ID</u>: PRJNA952320<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_84e206eb98f7447656a9a19c9769412e.setContent(html_b80fa1813821c3922ff66960a5ce20f2);
+            
+        
+
+        circle_marker_4d07f1c2223392bf0eed9cde4ee10a76.bindPopup(popup_84e206eb98f7447656a9a19c9769412e)
+        ;
+
+        
+    
+    
+            var circle_marker_de012cda599d0fc1b8684cfeb8f7aa1b = L.circleMarker(
+                [-34.78030210952257, 176.62493463337006],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_522528677429710159b0d45f6ceefa9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e2afdf2cd20857b4e4e63a260dc2060 = $(`<div id="html_4e2afdf2cd20857b4e4e63a260dc2060" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus A11349-1</b></i><br><u>Date</u>: 2011<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCF_039558885.1<br><u>BioSample ID</u>: SAMN34072694<br><u>BioProject ID</u>: PRJNA952320<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_522528677429710159b0d45f6ceefa9f.setContent(html_4e2afdf2cd20857b4e4e63a260dc2060);
+            
+        
+
+        circle_marker_de012cda599d0fc1b8684cfeb8f7aa1b.bindPopup(popup_522528677429710159b0d45f6ceefa9f)
+        ;
+
+        
+    
+    
+            var circle_marker_c13cb43e650c004ef1d2a98c6af2cfd1 = L.circleMarker(
+                [29.055085740124934, 122.97112498225906],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_2cafe51f47f0a24a999c5d2e596fdd94 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d6c6b8a7319b9e4bc0536296fb46acd = $(`<div id="html_1d6c6b8a7319b9e4bc0536296fb46acd" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio vulnificus Z-284</b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Marine shellfish</i><br><u>Assembly ID</u>: GCF_036597035.1<br><u>BioSample ID</u>: SAMN36264927<br><u>BioProject ID</u>: PRJNA990331<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_2cafe51f47f0a24a999c5d2e596fdd94.setContent(html_1d6c6b8a7319b9e4bc0536296fb46acd);
+            
+        
+
+        circle_marker_c13cb43e650c004ef1d2a98c6af2cfd1.bindPopup(popup_2cafe51f47f0a24a999c5d2e596fdd94)
+        ;
+
+        
+    
+    
+            var circle_marker_e50d449a8741b7c0d4debc8110c981ee = L.circleMarker(
+                [40.66287155608274, -70.94624073933055],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_3b1fa0e0959a0a4525f0b92a519db2c3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d413a5296b4ba50738b0cad9560a2833 = $(`<div id="html_d413a5296b4ba50738b0cad9560a2833" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus RISHL23000024</b></i><br><u>Date</u>: 2010-07-28<br><u>Source</u>: <i>Crassostrea virginica</i><br><u>Assembly ID</u>: GCA_031108285.1<br><u>BioSample ID</u>: SAMN36517478<br><u>BioProject ID</u>: PRJNA758975<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_3b1fa0e0959a0a4525f0b92a519db2c3.setContent(html_d413a5296b4ba50738b0cad9560a2833);
+            
+        
+
+        circle_marker_e50d449a8741b7c0d4debc8110c981ee.bindPopup(popup_3b1fa0e0959a0a4525f0b92a519db2c3)
+        ;
+
+        
+    
+    
+            var circle_marker_001ee6bb9fc59bfd292be14edd4068c9 = L.circleMarker(
+                [23.54919647522842, 113.46882745117816],
+                {"bubblingMouseEvents": true, "color": "darkmagenta", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkmagenta", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_63e0ac03cc5c8e45ce36a66c8a925a87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd88a8c8b1175cecb594550bf509e663 = $(`<div id="html_dd88a8c8b1175cecb594550bf509e663" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. 2092 2092</b></i><br><u>Date</u>: 2016<br><u>Source</u>: <i>Food</i><br><u>Assembly ID</u>: GCF_033339635.1<br><u>BioSample ID</u>: SAMN37342293<br><u>BioProject ID</u>: PRJNA1014893<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_63e0ac03cc5c8e45ce36a66c8a925a87.setContent(html_dd88a8c8b1175cecb594550bf509e663);
+            
+        
+
+        circle_marker_001ee6bb9fc59bfd292be14edd4068c9.bindPopup(popup_63e0ac03cc5c8e45ce36a66c8a925a87)
+        ;
+
+        
+    
+    
+            var circle_marker_794ceee82711e3dcb78a1dc4cae8b7d4 = L.circleMarker(
+                [20.986857747767633, 114.01387373579945],
+                {"bubblingMouseEvents": true, "color": "darkmagenta", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkmagenta", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_85cb55822daffab37d4f1a5b3ed4ad87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f0e10007d68dbe19e1240496479c6e43 = $(`<div id="html_f0e10007d68dbe19e1240496479c6e43" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. Vb2896 Vb2896</b></i><br><u>Date</u>: 2019<br><u>Source</u>: <i>Food</i><br><u>Assembly ID</u>: GCF_033337915.1<br><u>BioSample ID</u>: SAMN37342385<br><u>BioProject ID</u>: PRJNA1014893<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_85cb55822daffab37d4f1a5b3ed4ad87.setContent(html_f0e10007d68dbe19e1240496479c6e43);
+            
+        
+
+        circle_marker_794ceee82711e3dcb78a1dc4cae8b7d4.bindPopup(popup_85cb55822daffab37d4f1a5b3ed4ad87)
+        ;
+
+        
+    
+    
+            var circle_marker_25877910344fadffcaa6c94d03a6532b = L.circleMarker(
+                [23.52051940783892, 114.79977902554133],
+                {"bubblingMouseEvents": true, "color": "darkmagenta", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkmagenta", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_417e08f1d864fdf98565eb576f14e5cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7905e24dc5dd8995ee59eddeaed8101a = $(`<div id="html_7905e24dc5dd8995ee59eddeaed8101a" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio sp. Vb2897 Vb2897</b></i><br><u>Date</u>: 2019<br><u>Source</u>: <i>Food</i><br><u>Assembly ID</u>: GCF_033337895.1<br><u>BioSample ID</u>: SAMN37342386<br><u>BioProject ID</u>: PRJNA1014893<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_417e08f1d864fdf98565eb576f14e5cd.setContent(html_7905e24dc5dd8995ee59eddeaed8101a);
+            
+        
+
+        circle_marker_25877910344fadffcaa6c94d03a6532b.bindPopup(popup_417e08f1d864fdf98565eb576f14e5cd)
+        ;
+
+        
+    
+    
+            var circle_marker_36a4061e901e85695be14af2dab29fc2 = L.circleMarker(
+                [30.391023687876643, 119.50835991748474],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_4f8330ced42df39b623f62c7f09686d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da86bb236ed402c59cd252116283c26b = $(`<div id="html_da86bb236ed402c59cd252116283c26b" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus LCU-VP314</b></i><br><u>Date</u>: 2023-02-09<br><u>Source</u>: <i>Penaeus vannamei</i><br><u>Assembly ID</u>: GCF_034929805.1<br><u>BioSample ID</u>: SAMN39105902<br><u>BioProject ID</u>: PRJNA1056764<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_4f8330ced42df39b623f62c7f09686d6.setContent(html_da86bb236ed402c59cd252116283c26b);
+            
+        
+
+        circle_marker_36a4061e901e85695be14af2dab29fc2.bindPopup(popup_4f8330ced42df39b623f62c7f09686d6)
+        ;
+
+        
+    
+    
+            var circle_marker_4d5308ad6c2cc8d19c93fc0d34ac85c7 = L.circleMarker(
+                [36.95072020826051, 104.43359694399285],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_d0f096bc2a40fe30feb9080adebcccbf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57847d311a7759e227cc06d9c310311f = $(`<div id="html_57847d311a7759e227cc06d9c310311f" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus LVP81</b></i><br><u>Date</u>: 2021<br><u>Source</u>: <i>Procambarus clarkii</i><br><u>Assembly ID</u>: GCF_048965765.1<br><u>BioSample ID</u>: SAMN39716346<br><u>BioProject ID</u>: PRJNA1071875<br><u>Assembly Level</u>: Scaffold</div>`)[0];
+                popup_d0f096bc2a40fe30feb9080adebcccbf.setContent(html_57847d311a7759e227cc06d9c310311f);
+            
+        
+
+        circle_marker_4d5308ad6c2cc8d19c93fc0d34ac85c7.bindPopup(popup_d0f096bc2a40fe30feb9080adebcccbf)
+        ;
+
+        
+    
+    
+            var circle_marker_09325e7893a9dd29c79b4ebdf64a2be7 = L.circleMarker(
+                [44.697800503285876, -65.83255560473684],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_2a316f902e2e0fc9ed0de21f7c0a5ded = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0034ce885e3eda0ac76c3de7031edef9 = $(`<div id="html_0034ce885e3eda0ac76c3de7031edef9" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio antiquarius Ex25 HS-180-8</b></i><br><u>Date</u>: 2021-08-24<br><u>Source</u>: <i>Oyster</i><br><u>Assembly ID</u>: GCA_049410305.1<br><u>BioSample ID</u>: SAMN40377098<br><u>BioProject ID</u>: PRJNA514245<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_2a316f902e2e0fc9ed0de21f7c0a5ded.setContent(html_0034ce885e3eda0ac76c3de7031edef9);
+            
+        
+
+        circle_marker_09325e7893a9dd29c79b4ebdf64a2be7.bindPopup(popup_2a316f902e2e0fc9ed0de21f7c0a5ded)
+        ;
+
+        
+    
+    
+            var circle_marker_7191ac8b7a610f2e7f3c1485c015fc2b = L.circleMarker(
+                [46.845429235569355, -122.88117338663285],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_8e26c9a4996299d77c08b5215dcf1345 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d061774a71962823fbbcbfb2dd5c9d07 = $(`<div id="html_d061774a71962823fbbcbfb2dd5c9d07" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus S23-095E</b></i><br><u>Date</u>: 2023-07-31<br><u>Source</u>: <i>Environmental</i><br><u>Assembly ID</u>: GCA_040370165.1<br><u>BioSample ID</u>: SAMN42041857<br><u>BioProject ID</u>: PRJNA826895<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_8e26c9a4996299d77c08b5215dcf1345.setContent(html_d061774a71962823fbbcbfb2dd5c9d07);
+            
+        
+
+        circle_marker_7191ac8b7a610f2e7f3c1485c015fc2b.bindPopup(popup_8e26c9a4996299d77c08b5215dcf1345)
+        ;
+
+        
+    
+    
+            var circle_marker_b15124d3d0314fa7865c4a21b64dd110 = L.circleMarker(
+                [39.83165682638233, -98.61615533473231],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_5747854874c98b2d84abb9e90d11a7f4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68bc41eeff61ab43e69c6c75f51787a6 = $(`<div id="html_68bc41eeff61ab43e69c6c75f51787a6" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio fluvialis PNUSAV005638</b></i><br><u>Date</u>: 2024<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCA_040401375.1<br><u>BioSample ID</u>: SAMN42123967<br><u>BioProject ID</u>: PRJNA266293<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_5747854874c98b2d84abb9e90d11a7f4.setContent(html_68bc41eeff61ab43e69c6c75f51787a6);
+            
+        
+
+        circle_marker_b15124d3d0314fa7865c4a21b64dd110.bindPopup(popup_5747854874c98b2d84abb9e90d11a7f4)
+        ;
+
+        
+    
+    
+            var circle_marker_85bd92289df6cc4aab8d443c2a0821cf = L.circleMarker(
+                [41.13647656179014, -100.58715407157544],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_3516067be45ed54ead665907d6f2c611 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_698789ea01301f9ec465a455cf15ec31 = $(`<div id="html_698789ea01301f9ec465a455cf15ec31" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio fluvialis PNUSAV005632</b></i><br><u>Date</u>: 2024<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCA_040455475.1<br><u>BioSample ID</u>: SAMN42231753<br><u>BioProject ID</u>: PRJNA266293<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_3516067be45ed54ead665907d6f2c611.setContent(html_698789ea01301f9ec465a455cf15ec31);
+            
+        
+
+        circle_marker_85bd92289df6cc4aab8d443c2a0821cf.bindPopup(popup_3516067be45ed54ead665907d6f2c611)
+        ;
+
+        
+    
+    
+            var circle_marker_9cc5d66b54acc431b41e32b9f37edcf8 = L.circleMarker(
+                [39.624814348470686, -101.32339333237783],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_5f7b3cf5daea892732e12c014aa8eca2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e8c72148396bae48dc455408f337b439 = $(`<div id="html_e8c72148396bae48dc455408f337b439" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus PNUSAV005781</b></i><br><u>Date</u>: Not collected<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCA_040738525.1<br><u>BioSample ID</u>: SAMN42526650<br><u>BioProject ID</u>: PRJNA266293<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_5f7b3cf5daea892732e12c014aa8eca2.setContent(html_e8c72148396bae48dc455408f337b439);
+            
+        
+
+        circle_marker_9cc5d66b54acc431b41e32b9f37edcf8.bindPopup(popup_5f7b3cf5daea892732e12c014aa8eca2)
+        ;
+
+        
+    
+    
+            var circle_marker_6d88b2a0807de1fc3f498341d303169c = L.circleMarker(
+                [26.27330614262415, 111.91018329091835],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_a31f8c2e14b01eb2706e72870d639e3e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13ef2003f891550282aa28fcdfb339a4 = $(`<div id="html_13ef2003f891550282aa28fcdfb339a4" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 107</b></i><br><u>Date</u>: 2022-09-22<br><u>Source</u>: <i>Razor clam</i><br><u>Assembly ID</u>: GCF_045446135.1<br><u>BioSample ID</u>: SAMN42940227<br><u>BioProject ID</u>: PRJNA1142238<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_a31f8c2e14b01eb2706e72870d639e3e.setContent(html_13ef2003f891550282aa28fcdfb339a4);
+            
+        
+
+        circle_marker_6d88b2a0807de1fc3f498341d303169c.bindPopup(popup_a31f8c2e14b01eb2706e72870d639e3e)
+        ;
+
+        
+    
+    
+            var circle_marker_9c0b9a4e489f88c85321233721259774 = L.circleMarker(
+                [63.85029066416068, -150.19829755777712],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_f4a2ad3bd4fe2754ec7ab2dafaec5b17 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4bf2bef452ae83e11d279df7b6cf8d23 = $(`<div id="html_4bf2bef452ae83e11d279df7b6cf8d23" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 18SE91B</b></i><br><u>Date</u>: 2018-09-03<br><u>Source</u>: <i>Magallana gigas</i><br><u>Assembly ID</u>: GCA_042312335.1<br><u>BioSample ID</u>: SAMN43905462<br><u>BioProject ID</u>: PRJNA1136880<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_f4a2ad3bd4fe2754ec7ab2dafaec5b17.setContent(html_4bf2bef452ae83e11d279df7b6cf8d23);
+            
+        
+
+        circle_marker_9c0b9a4e489f88c85321233721259774.bindPopup(popup_f4a2ad3bd4fe2754ec7ab2dafaec5b17)
+        ;
+
+        
+    
+    
+            var circle_marker_d09a7f0d1fb96e0b89e8a3353b765e16 = L.circleMarker(
+                [34.61640751600013, -7.633800060481748],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(map_ee1107318f15de08de3e8d0dee632d35);
+        
+    
+        var popup_06c5cb64004db90ff2b5bbfbbae2d652 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8bfc915eea8664133e38aa1311b42d3d = $(`<div id="html_8bfc915eea8664133e38aa1311b42d3d" style="width: 100.0%; height: 100.0%;"><i><b>Vibrio parahaemolyticus 041</b></i><br><u>Date</u>: 2021<br><u>Source</u>: <i>Homo sapiens</i><br><u>Assembly ID</u>: GCF_050876045.1<br><u>BioSample ID</u>: SAMN48588256<br><u>BioProject ID</u>: PRJNA1265187<br><u>Assembly Level</u>: Contig</div>`)[0];
+                popup_06c5cb64004db90ff2b5bbfbbae2d652.setContent(html_8bfc915eea8664133e38aa1311b42d3d);
+            
+        
+
+        circle_marker_d09a7f0d1fb96e0b89e8a3353b765e16.bindPopup(popup_06c5cb64004db90ff2b5bbfbbae2d652)
+        ;
+
+        
+    
+</script>
+</html>
