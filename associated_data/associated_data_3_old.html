@@ -60,16 +60,6 @@
     .zoom-help{font-size:12px;color:#6b7280;margin-top:6px}
     .legend-subtitle{font-size:15px;font-weight:700;color:#6b7280;margin:10px 0 8px 0}
     .highlight-chip{display:inline-block;margin:4px 6px 0 0;padding:4px 8px;border-radius:999px;background:#f3f4f6;border:1px solid #e5e7eb;font-size:12px;color:#374151}
-    .search-results-panel{margin-top:10px;border:1px solid #cfd6df;border-radius:8px;background:#fafafa;overflow:hidden}
-    .search-results-header{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 10px;background:#f3f4f6;border-bottom:1px solid #e5e7eb;font-size:13px;color:#374151}
-    .search-results-count{font-size:12px;color:#6b7280;white-space:nowrap}
-    .search-results-body{max-height:190px;overflow:auto;padding:8px 10px;font-size:13px;line-height:1.35}
-    .search-results-empty{color:#6b7280;font-style:italic}
-    .search-result-item{display:grid;grid-template-columns:minmax(92px,130px) minmax(0,1fr);gap:8px;padding:5px 0;border-bottom:1px solid #eceff3}
-    .search-result-item:last-child{border-bottom:none}
-    .search-result-name{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-weight:700;color:#111827;white-space:nowrap}
-    .search-result-desc{color:#4b5563;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .search-result-keywords{color:#6b7280;font-size:12px;margin-left:4px}
     
   </style>
 </head>
@@ -103,15 +93,8 @@
           </select>
         </div>
         <div class="control">
-          <div class="label">Search by keywords</div>
-          <textarea id="highlightInput" class="hl-input" placeholder="E.g. recombinase, replication, transposase, phage protein&#10;Separate keywords with spaces, commas, semicolons, or line breaks"></textarea>
-          <div id="highlightResults" class="search-results-panel">
-            <div class="search-results-header">
-              <strong>Matching CDS</strong>
-              <span id="highlightResultsCount" class="search-results-count">No active search</span>
-            </div>
-            <div id="highlightResultsBody" class="search-results-body search-results-empty">Enter keyword(s), then click Apply.</div>
-          </div>
+          <div class="label">Genes / loci to highlight</div>
+          <textarea id="highlightInput" class="hl-input" placeholder="E.g. recA, rctB, istB&#10;Separate with commas, semicolons, or line breaks"></textarea>
         </div>
         <div class="control">
           <div class="label">Highlight</div>
@@ -240,98 +223,23 @@ function featureRBS(f){ return pick(f, ["rbs_motif", "rbs", "ribosome_binding_si
 function featureLength(f){ const raw = pick(f, ["length", "len", "bp"]); if(raw != null && Number(raw) > 0) return Number(raw); const a = featStart(f), b = featStop(f); return b >= a ? (b - a + 1) : ""; }
 function featureCoords(f){ return `${(featStart(f)/1000).toFixed(1)}-${(featStop(f)/1000).toFixed(1)} kbp`; }
 function normToken(s){ return String(s || "").trim().toLowerCase(); }
-function wordTokens(s){
-  return String(s || "")
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .match(/[a-z0-9]+/g) || [];
-}
 function parseHighlightInput(text){
-  // Keyword mode: every complete word entered by the user is a separate search term.
-  // This means "phage protein" searches for CDS described by "phage" OR "protein".
-  return Array.from(new Set(wordTokens(text)));
+  return Array.from(new Set(String(text || "")
+    .split(/[\n,;]+/)
+    .map(normToken)
+    .filter(Boolean)
+  ));
 }
-function nestedPick(obj, path){
-  let cur = obj;
-  for(const key of path){
-    if(cur == null || typeof cur !== "object") return "";
-    cur = cur[key];
-  }
-  return cur == null ? "" : cur;
-}
-function featureKeywordText(f){
-  // Fields that describe a CDS. Long sequence fields are intentionally excluded.
-  return [
+function featureTokens(f){
+  return Array.from(new Set([
     featGene(f),
     featLocus(f),
-    pick(f, ["name","id"]),
-    featProduct(f),
-    pick(f, ["description"]),
-    pick(f, ["genes"]),
-    pick(f, ["db_xrefs"]),
-    pick(f, ["supp7_gene_name"]),
-    pick(f, ["supp7_ko"]),
-    pick(f, ["supp7_ko_definition"]),
-    pick(f, ["supp7_kegg_brite_1"]),
-    pick(f, ["kegg_brite_category"]),
-    pick(f, ["supp7_conjscan_definition"]),
-    nestedPick(f, ["psc", "gene"]),
-    nestedPick(f, ["psc", "product"]),
-    nestedPick(f, ["pscc", "product"]),
-    nestedPick(f, ["inference", "description"]),
-    nestedPick(f, ["inference", "gene"]),
-    nestedPick(f, ["inference", "product"])
-  ].map(textOf).filter(Boolean).join(" ");
-}
-function matchedKeywords(f){
-  if(!STATE.highlightSet || STATE.highlightSet.size === 0) return [];
-  if(normalizeFeatureType(f) !== "cds") return [];
-  const cdsWords = new Set(wordTokens(featureKeywordText(f)));
-  return Array.from(STATE.highlightSet).filter(keyword => cdsWords.has(keyword));
+    pick(f, ["name","id"])
+  ].map(normToken).filter(Boolean)));
 }
 function isHighlighted(f){
-  return matchedKeywords(f).length > 0;
-}
-function featureDisplayName(f){
-  return featLocus(f) || pick(f, ["supp7_gene_name"]) || featGene(f) || pick(f, ["name","id"]) || `${featureCoords(f)}`;
-}
-function shortFeatureDescription(f){
-  return featProduct(f) || pick(f, ["description"]) || pick(f, ["supp7_ko_definition"]) || pick(f, ["supp7_kegg_brite_1"]) || "CDS";
-}
-function renderHighlightResults(features){
-  const countEl = $("highlightResultsCount");
-  const bodyEl = $("highlightResultsBody");
-  if(!countEl || !bodyEl) return;
-
-  const keywords = Array.from(STATE.highlightSet || []);
-  if(!keywords.length){
-    countEl.textContent = "No active search";
-    bodyEl.className = "search-results-body search-results-empty";
-    bodyEl.textContent = "Enter keyword(s), then click Apply.";
-    return;
-  }
-
-  const matches = (features || [])
-    .filter(f => normalizeFeatureType(f) === "cds")
-    .map(f => ({ feature:f, keywords:matchedKeywords(f) }))
-    .filter(x => x.keywords.length)
-    .sort((a,b) => featStart(a.feature) - featStart(b.feature));
-
-  countEl.textContent = `${matches.length} CDS matched`;
-  bodyEl.className = matches.length ? "search-results-body" : "search-results-body search-results-empty";
-
-  if(!matches.length){
-    bodyEl.textContent = `No CDS matched: ${keywords.join(", ")}`;
-    return;
-  }
-
-  bodyEl.innerHTML = matches.map(({feature, keywords}) => {
-    const name = featureDisplayName(feature);
-    const desc = shortFeatureDescription(feature);
-    const kw = keywords.join(", ");
-    return `<div class="search-result-item"><span class="search-result-name">${esc(name)}</span><span class="search-result-desc" title="${esc(desc)}">${esc(desc)}<span class="search-result-keywords">[${esc(kw)}]</span></span></div>`;
-  }).join("");
+  if(!STATE.highlightSet || STATE.highlightSet.size === 0) return false;
+  return featureTokens(f).some(tok => STATE.highlightSet.has(tok));
 }
 
 
@@ -435,7 +343,7 @@ function renderLegend(){
 
   const highlightItems = Array.from(STATE.highlightSet || []);
   $("highlightLegend").innerHTML = highlightItems.length
-    ? `<div class="legend-subtitle">Highlighted keywords</div><div class="legend-item"><span class="swatch" style="background:${STATE.highlightColor}"></span><span><strong>${highlightItems.length}</strong> active entries</span></div><div>${highlightItems.map(x => `<span class="highlight-chip">${esc(x)}</span>`).join("")}</div>`
+    ? `<div class="legend-subtitle">Highlighted genes / loci</div><div class="legend-item"><span class="swatch" style="background:${STATE.highlightColor}"></span><span><strong>${highlightItems.length}</strong> active entries</span></div><div>${highlightItems.map(x => `<span class="highlight-chip">${esc(x)}</span>`).join("")}</div>`
     : "";
 }
 function renderSelect(){
@@ -528,7 +436,6 @@ function render(){
   const features = STATE.features.filter(f => featSeq(f) === selected).filter(f => featStop(f) > featStart(f)).sort((a,b) => featStart(a) - featStart(b));
   const tracks = computeGCTracks(dna) || gcFallbackFromFeatures(features, len), gcOverall = overallGC(dna), stats = seqStatsForStatus(features);
   const highlightedCount = features.filter(f => isHighlighted(f)).length;
-  renderHighlightResults(features);
   $("plotTitle").innerHTML = `<span class="line1">Assembly accession: GCA_001045415.1</span><span class="line2">Number of predicted CDS: ${stats.cds} (Bakta)</span>`;
   const hypoPct = stats.cds ? Math.round((stats.hypothetical / stats.cds) * 100) : 0;
   $("statusLine").textContent = `GCA_001045415.1 · CDS: ${stats.cds}${highlightedCount ? ` · Highlighted: ${highlightedCount}` : ""}${tracks && tracks.proxy ? " · GC content and GC skew are shown as a visual proxy." : ""}`.trim();
