@@ -114,14 +114,15 @@
         
     
             var tile_layer_cc00e374fc22a3f65dcb00a2897cb36f = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 2,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-    "detectRetina": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
   "tms": false,
   "opacity": 1,
 }
